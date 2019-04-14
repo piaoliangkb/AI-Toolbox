@@ -193,6 +193,62 @@ To build the library you need:
 
 In addition, full C++17 support is now required (**this means at least g++-7**)
 
+how to install dependencies on ubuntu 16.04 LTS
+------------
+
+##### cmake 
+
+```
+wget https://github.com/Kitware/CMake/releases/download/v3.14.2/cmake-3.14.2.tar.gz
+tar -xzf cmake-3.14.2.tar.gz
+cd cmake-3.14.2
+
+./bootstrap
+make
+make install
+```
+
+##### c++17
+
+```
+apt-get install -y software-properties-common python-software-properties
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt install g++-7 -y
+
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 \
+                         --slave /usr/bin/g++ g++ /usr/bin/g++-7 
+sudo update-alternatives --config gcc
+gcc --version
+g++ --version
+```
+
+##### eigen3.3 library
+
+```
+apt install libeigen3-dev
+```
+
+##### lpsolve
+
+```
+apt install liblpsolve55-dev lp-solve
+```
+
+##### boost
+
+need to download boost_x_xx_x.tar.gz first
+
+```
+apt-get install mpi-default-dev libicu-dev python-dev python3-dev libbz2-dev zlib1g-dev
+tar -xzf boost_1_60_0.tar.gz
+cd boost_1_60_0
+
+./bootstrap.sh
+./b2 && ./b2 install
+
+```
+
 Building
 --------
 
